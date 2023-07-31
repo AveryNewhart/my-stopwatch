@@ -4,8 +4,8 @@ import { ref } from 'vue';
 const timeElapsed = ref(0);
 
 function start() {
-  const interval = setInerval(() => {
-
+  const interval = setInterval(() => {
+    timeElapsed.value++;
   }, 1000);
 }
 
@@ -14,7 +14,7 @@ function start() {
 <template>
   <div>
     <div>{{ timeElapsed }}</div>
-    <button @click="start">Start</button>
+    <button @click="start">start</button>
     <button>Pause</button>
     <button>Restart</button>
   </div>
