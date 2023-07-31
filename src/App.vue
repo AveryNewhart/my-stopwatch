@@ -23,6 +23,15 @@ function pause() {
   interval.value = undefined;
 }
 
+function restart () {
+  timeElapsed.value = 0;
+  if (interval.value !== undefined) {
+  clearInterval(interval.value);
+  interval.value = undefined;
+  }
+  start();
+}
+
 </script>
 
 <template>
@@ -31,7 +40,7 @@ function pause() {
     <button v-if="state === 'stopped'" @click="start">start</button>
     <button v-if="state === 'running'" @click="pause">Pause</button>
     <button v-if="state === 'paused'" @click="start">resume</button>
-    <button v-if="state === 'running' || state === 'paused'">restart</button>
+    <button v-if="state === 'running' || state === 'paused'" @click="restart">restart</button>
   </div>
 </template>
 
