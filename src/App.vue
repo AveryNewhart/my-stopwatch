@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+// setting the state of which the time is
+const state = ref<"stopped" | "running" | "paused">("stopped");
+
 // for the start
 const timeElapsed = ref(0);
 
@@ -8,13 +11,16 @@ const timeElapsed = ref(0);
 const interval = ref<number | undefined>(undefined);
 
 function start() {
+  state.value = "running";
   interval.value = setInterval(() => {
     timeElapsed.value++;
   }, 1000);
 }
 
 function pause() {
+  state.value = "paused";
   clearInterval(interval.value);
+  interval.value = undefined;
 }
 
 </script>
@@ -22,9 +28,10 @@ function pause() {
 <template>
   <div>
     <div>{{ timeElapsed }}</div>
-    <button @click="start">start</button>
-    <button @click="pause">Pause</button>
-    <button>Restart</button>
+    <button v-if="state === 'stopped'" @click="start">start</button>
+    <button v-if="state === 'running'" @click="pause">Pause</button>
+    <button v-if="state === 'paused'" @click="start">resume</button>
+    <button v-if="state === 'running' || state === 'paused'">restart</button>
   </div>
 </template>
 
