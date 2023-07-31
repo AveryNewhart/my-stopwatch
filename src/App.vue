@@ -32,11 +32,16 @@ function restart () {
   start();
 }
 
+function formatTime(elaspedTime: numer) {
+  const minutes = `0${Math.floor(elaspedTime / 60)}`.slice(-2);
+  const seconds = `0${elaspedTime % 60}`.slice(-2);
+  return `${minutes}:${seconds}`;
+}
 </script>
 
 <template>
   <div>
-    <div>{{ timeElapsed }}</div>
+    <div>{{ formatTime(timeElapsed) }}</div>
     <button v-if="state === 'stopped'" @click="start">start</button>
     <button v-if="state === 'running'" @click="pause">Pause</button>
     <button v-if="state === 'paused'" @click="start">resume</button>
