@@ -1,10 +1,20 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const timeElapsed = ref(0);
+
+function start() {
+  const interval = setInerval(() => {
+
+  }, 1000);
+}
+
 </script>
 
 <template>
   <div>
-    <div>00:00</div>
-    <button>Start</button>
+    <div>{{ timeElapsed }}</div>
+    <button @click="start">Start</button>
     <button>Pause</button>
     <button>Restart</button>
   </div>
