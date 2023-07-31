@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+// for the start
 const timeElapsed = ref(0);
 
+//for the pause
+const interval = ref<number | undefined>(undefined);
+
 function start() {
-  const interval = setInterval(() => {
+  interval.value = setInterval(() => {
     timeElapsed.value++;
   }, 1000);
+}
+
+function pause() {
+  clearInterval(interval.value);
 }
 
 </script>
@@ -15,7 +23,7 @@ function start() {
   <div>
     <div>{{ timeElapsed }}</div>
     <button @click="start">start</button>
-    <button>Pause</button>
+    <button @click="pause">Pause</button>
     <button>Restart</button>
   </div>
 </template>
