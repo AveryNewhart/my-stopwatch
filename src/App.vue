@@ -41,13 +41,36 @@ function formatTime(elaspedTime: number) {
 
 <template>
   <div>
-    <div>{{ formatTime(timeElapsed) }}</div>
-    <button v-if="state === 'stopped'" @click="start">start</button>
-    <button v-if="state === 'running'" @click="pause">Pause</button>
-    <button v-if="state === 'paused'" @click="start">resume</button>
-    <button v-if="state === 'running' || state === 'paused'" @click="restart">restart</button>
+    <div class="timeSlot">{{ formatTime(timeElapsed) }}</div>
+    <button class="proCol" v-if="state === 'stopped'" @click="start">start</button>
+    <button class="stopCol" v-if="state === 'running'" @click="pause">pause</button>
+    <button class="proCol" v-if="state === 'paused'" @click="start">resume</button>
+    <button class="resCol" v-if="state === 'running' || state === 'paused'" @click="restart">restart</button>
   </div>
 </template>
 
 <style scoped>
+
+.timeSlot {
+  background: #092327;
+  padding: 20px;
+  border-radius: 25px;
+  margin-bottom: 5px;
+}
+
+.proCol {
+  background-color: rgb(13, 75, 13);
+  color: #F8F4E3;
+}
+
+.stopCol {
+  background-color: rgb(111, 17, 17);
+  color: #F8F4E3;
+}
+
+.resCol {
+  background-color: rgb(18, 18, 107);
+  color: #F8F4E3;
+}
+
 </style>
