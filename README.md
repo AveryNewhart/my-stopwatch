@@ -22,7 +22,7 @@
 
 # Usage
 
-- https://averynewhart.github.io/vue-calc/
+- https://averynewhart.github.io/my-stopwatch/
 
 ## Questions
 

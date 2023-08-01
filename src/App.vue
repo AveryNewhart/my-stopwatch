@@ -32,7 +32,7 @@ function restart () {
   start();
 }
 
-function formatTime(elaspedTime: numer) {
+function formatTime(elaspedTime: number) {
   const minutes = `0${Math.floor(elaspedTime / 60)}`.slice(-2);
   const seconds = `0${elaspedTime % 60}`.slice(-2);
   return `${minutes}:${seconds}`;
