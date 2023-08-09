@@ -56,6 +56,7 @@ function formatTime(elaspedTime: number) {
   padding: 20px;
   border-radius: 25px;
   margin-bottom: 5px;
+  font-size: 50px;
 }
 
 .proCol {
@@ -71,6 +72,10 @@ function formatTime(elaspedTime: number) {
 .resCol {
   background-color: rgb(18, 18, 107);
   color: #F8F4E3;
+}
+
+button {
+  min-width: 25px;
 }
 
 </style>
